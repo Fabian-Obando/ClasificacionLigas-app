@@ -10,4 +10,12 @@ export const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full',
   },
+  {
+    path: 'clasification-table',
+    loadComponent: () => import('./pages/clasification-table/clasification-table.page').then( m => m.ClasificationTablePage)
+  },
+  {
+    path: 'clasification-table',
+    loadComponent: () => import('./pages/clasification-table/clasification-table.page').then( m => m.ClasificationTablePage)
+  },
 ];

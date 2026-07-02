@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Clasificación ligas
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-card>
+
+    <ion-card-header>
+
+      <ion-card-title>
+        Clasificación ligas
+      </ion-card-title>
+
+    </ion-card-header>
+
+    <ion-card-content>
+
+      <ion-select
+        label="Liga"
+        placeholder="Seleccione una liga"
+        [(ngModel)]="ligaSeleccionada">
+
+        <ion-select-option
+          *ngFor="let liga of ligas"
+          [value]="liga">
+
+          {{ liga }}
+
+        </ion-select-option>
+
+      </ion-select>
+
+      <br>
+
+      <ion-select
+        label="Temporada"
+        placeholder="Seleccione una temporada"
+        [(ngModel)]="temporadaSeleccionada">
+
+        <ion-select-option
+          *ngFor="let temporada of temporadas"
+          [value]="temporada">
+
+          {{ temporada }}
+
+        </ion-select-option>
+
+      </ion-select>
+
+    </ion-card-content>
+
+  </ion-card>
+
+</ion-content>
