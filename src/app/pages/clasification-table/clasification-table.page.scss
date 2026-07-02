@@ -1,29 +1,353 @@
-ion-content{
+/*==================================================
+=               FONDO GENERAL
+==================================================*/
 
---background:#101010;
+ion-content {
 
-}
-
-ion-card{
-
-border-radius:18px;
+  --background: #0d1117;
 
 }
 
-ion-title{
+/*==================================================
+=               TOOLBAR
+==================================================*/
 
-font-weight:bold;
+ion-toolbar {
 
-text-align:center;
+  --background: #161b22;
+  --color: #ffffff;
 
 }
 
-ion-card-title{
+ion-title {
 
-text-align:center;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: .5px;
 
-font-size:22px;
+}
 
-font-weight:bold;
+/*==================================================
+=               CONTENEDOR
+==================================================*/
+
+.contenedor {
+
+  width: 100%;
+  max-width: 430px;
+  margin: auto;
+  padding: 14px;
+
+}
+
+/*==================================================
+=               CARDS
+==================================================*/
+
+ion-card {
+
+  background: #1c2128;
+  border-radius: 20px;
+  margin-bottom: 18px;
+  box-shadow: 0 10px 25px rgba(0,0,0,.35);
+
+}
+
+.card-selector {
+
+  padding-bottom: 6px;
+
+}
+
+.card-tabla {
+
+  overflow: hidden;
+
+}
+
+ion-card-title {
+
+  color: #ffffff;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 5px;
+
+}
+
+/*==================================================
+=               SELECT
+==================================================*/
+
+ion-select {
+
+  margin-top: 18px;
+
+  --background: #2d333b;
+  --color: #ffffff;
+  --placeholder-color: #9ca3af;
+  --highlight-color: #2ea043;
+
+  --padding-start: 14px;
+  --padding-end: 14px;
+
+  --border-radius: 12px;
+
+}
+
+/*==================================================
+=               TABLA
+==================================================*/
+
+.tabla-responsive {
+
+  width: 100%;
+  overflow-x: auto;
+
+}
+
+.tabla {
+
+  width: 100%;
+  border-collapse: collapse;
+
+}
+
+/*==================================================
+=               CABECERA
+==================================================*/
+
+thead {
+
+  background: #238636;
+
+}
+
+th {
+
+  color: white;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 12px;
+  text-align: center;
+  white-space: nowrap;
+
+}
+
+/*==================================================
+=               FILAS
+==================================================*/
+
+tbody tr {
+
+  transition: .25s;
+  border-bottom: 1px solid #30363d;
+
+}
+
+tbody tr:nth-child(even) {
+
+  background: #22272e;
+
+}
+
+tbody tr:hover {
+
+  background: #30363d;
+
+}
+
+/*==================================================
+=               CELDAS
+==================================================*/
+
+td {
+
+  color: #ffffff;
+  text-align: center;
+  padding: 12px;
+  font-size: 13px;
+  vertical-align: middle;
+  white-space: nowrap;
+
+}
+
+/*==================================================
+=               RANKING
+==================================================*/
+
+.rank {
+
+  color: #58a6ff;
+  font-weight: bold;
+  font-size: 15px;
+
+}
+
+/*==================================================
+=               PUNTOS
+==================================================*/
+
+.puntos {
+
+  color: #3fb950;
+  font-weight: bold;
+  font-size: 15px;
+
+}
+
+/*==================================================
+=               EQUIPO
+==================================================*/
+
+.equipo {
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 190px;
+  text-align: left;
+  font-weight: 600;
+
+}
+
+.escudo {
+
+  width: 38px;
+  height: 38px;
+
+  border-radius: 50%;
+
+  background: white;
+
+  object-fit: contain;
+
+  padding: 3px;
+
+  flex-shrink: 0;
+
+  box-shadow: 0 0 8px rgba(255,255,255,.20);
+
+}
+
+/*==================================================
+=               MENSAJES
+==================================================*/
+
+.ion-text-center {
+
+  color: #c9d1d9;
+  font-size: 15px;
+  padding: 10px;
+
+}
+
+/*==================================================
+=               SCROLL
+==================================================*/
+
+.tabla-responsive::-webkit-scrollbar {
+
+  height: 8px;
+
+}
+
+.tabla-responsive::-webkit-scrollbar-thumb {
+
+  background: #3b434c;
+  border-radius: 20px;
+
+}
+
+/*==================================================
+=               RESPONSIVE
+==================================================*/
+
+@media (max-width: 768px) {
+
+  .contenedor {
+
+    max-width: 390px;
+
+  }
+
+  ion-card {
+
+    border-radius: 18px;
+
+  }
+
+  ion-card-title {
+
+    font-size: 21px;
+
+  }
+
+  th {
+
+    font-size: 12px;
+    padding: 9px;
+
+  }
+
+  td {
+
+    font-size: 12px;
+    padding: 9px;
+
+  }
+
+  .equipo {
+
+    min-width: 165px;
+    gap: 8px;
+
+  }
+
+  .escudo {
+
+    width: 30px;
+    height: 30px;
+
+  }
+
+}
+
+@media (max-width: 430px) {
+
+  .contenedor {
+
+    max-width: 100%;
+    padding: 10px;
+
+  }
+
+  ion-card-title {
+
+    font-size: 19px;
+
+  }
+
+  th,
+  td {
+
+    font-size: 11px;
+    padding: 7px;
+
+  }
+
+  .equipo {
+
+    min-width: 140px;
+
+  }
+
+  .escudo {
+
+    width: 26px;
+    height: 26px;
+
+  }
 
 }

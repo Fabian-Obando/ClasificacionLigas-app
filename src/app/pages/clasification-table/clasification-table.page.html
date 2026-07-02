@@ -1,59 +1,161 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="dark">
     <ion-title>
       Clasificación ligas
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
+<ion-content [fullscreen]="true">
 
-  <ion-card>
+  <div class="contenedor">
 
-    <ion-card-header>
+    <ion-card class="card-selector">
 
-      <ion-card-title>
-        Clasificación ligas
-      </ion-card-title>
+      <ion-card-header>
+        <ion-card-title>
+          Clasificación ligas
+        </ion-card-title>
+      </ion-card-header>
 
-    </ion-card-header>
+      <ion-card-content>
 
-    <ion-card-content>
+        <ion-select
+          label="Liga"
+          labelPlacement="stacked"
+          interface="alert"
+          [interfaceOptions]="{ header: 'Seleccione una liga' }"
+          [(ngModel)]="ligaSeleccionada"
+          (ionChange)="cargarTemporadas()">
 
-      <ion-select
-        label="Liga"
-        placeholder="Seleccione una liga"
-        [(ngModel)]="ligaSeleccionada">
+          <ion-select-option
+            *ngFor="let liga of ligas"
+            [value]="liga.idLeague">
 
-        <ion-select-option
-          *ngFor="let liga of ligas"
-          [value]="liga">
+            {{ liga.strLeague }}
 
-          {{ liga }}
+          </ion-select-option>
 
-        </ion-select-option>
+        </ion-select>
 
-      </ion-select>
+        <ion-select
+          label="Temporada"
+          labelPlacement="stacked"
+          interface="alert"
+          [interfaceOptions]="{ header: 'Seleccione una temporada' }"
+          [(ngModel)]="temporadaSeleccionada"
+          (ionChange)="cargarTabla()">
 
-      <br>
+          <ion-select-option
+            *ngFor="let temporada of temporadas"
+            [value]="temporada.strSeason">
 
-      <ion-select
-        label="Temporada"
-        placeholder="Seleccione una temporada"
-        [(ngModel)]="temporadaSeleccionada">
+            {{ temporada.strSeason }}
 
-        <ion-select-option
-          *ngFor="let temporada of temporadas"
-          [value]="temporada">
+          </ion-select-option>
 
-          {{ temporada }}
+        </ion-select>
 
-        </ion-select-option>
+      </ion-card-content>
 
-      </ion-select>
+    </ion-card>
 
-    </ion-card-content>
+    <ion-card *ngIf="cargando">
 
-  </ion-card>
+      <ion-card-content class="ion-text-center">
+
+        Cargando clasificación...
+
+      </ion-card-content>
+
+    </ion-card>
+
+    <ion-card
+      class="card-tabla"
+      *ngIf="!cargando && clasificacion.length > 0">
+
+      <ion-card-content>
+
+        <div class="tabla-responsive">
+
+          <table class="tabla">
+
+            <thead>
+
+              <tr>
+
+                <th>#</th>
+                <th>Equipo</th>
+                <th>Pts</th>
+                <th>PJ</th>
+                <th>V</th>
+                <th>E</th>
+                <th>D</th>
+                <th>GF</th>
+                <th>GC</th>
+                <th>DG</th>
+
+              </tr>
+
+            </thead>
+
+            <tbody>
+
+              <tr *ngFor="let equipo of clasificacion">
+
+                <td class="rank">
+                  {{ equipo.intRank }}
+                </td>
+
+                <td class="equipo">
+
+                  <img
+                    class="escudo"
+                    [src]="equipo.strBadge || 'assets/icon/icon.png'"
+                    [alt]="equipo.strTeam">
+
+                  <span>
+
+                    {{ equipo.strTeam }}
+
+                  </span>
+
+                </td>
+
+                <td class="puntos">
+                  {{ equipo.intPoints }}
+                </td>
+
+                <td>{{ equipo.intPlayed }}</td>
+                <td>{{ equipo.intWin }}</td>
+                <td>{{ equipo.intDraw }}</td>
+                <td>{{ equipo.intLoss }}</td>
+                <td>{{ equipo.intGoalsFor }}</td>
+                <td>{{ equipo.intGoalsAgainst }}</td>
+                <td>{{ equipo.intGoalDifference }}</td>
+
+              </tr>
+
+            </tbody>
+
+          </table>
+
+        </div>
+
+      </ion-card-content>
+
+    </ion-card>
+
+    <ion-card *ngIf="!cargando && clasificacion.length === 0">
+
+      <ion-card-content class="ion-text-center">
+
+        No hay información para mostrar.
+
+      </ion-card-content>
+
+    </ion-card>
+
+  </div>
 
 </ion-content>
